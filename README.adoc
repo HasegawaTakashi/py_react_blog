@@ -1,3 +1,9 @@
+:source-hightlighter: coderay
+:toc:
+:author: Hasegawa Takashi
+:lang: ja
+:doctype: book
+
 = ブログサイト開発要件
 
 == 概要
