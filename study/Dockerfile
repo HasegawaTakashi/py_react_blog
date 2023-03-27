@@ -1,15 +1,7 @@
-FROM node:14.15.0-alpine
+FROM node:18.15-alpine
 
-WORKDIR /app
+WORKDIR /usr/src/app
 
-RUN npm init -y
-
-COPY package.json /app/
-
-RUN npm install
-
-COPY . .
-
-EXPOSE 3000
+# RUN npm install -g create-react-app && create-react-app my-app --template typescript
 
 CMD ["npm", "start"]
