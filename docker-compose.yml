@@ -1,0 +1,9 @@
+version: "3.9"
+
+services:
+  react-app:
+    biuld: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./blog:app
