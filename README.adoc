@@ -48,3 +48,9 @@
 - パスワードはハッシュ化して保存する
 - SQLインジェクション、クロスサイトスクリプティング、クリックジャッキングなどの攻撃に対策する
 
+== 参考記事
+- https://qiita.com/newt0/items/b7810fb38c339ec5e4a7[React開発効率を3倍にするVS Code拡張機能&環境設定]
+
+- https://zenn.dev/rihito/articles/96dfad8d4990f9[dockerでReact環境を構築]
+
+- https://zenn.dev/roiban/articles/473f9cbf2b793a[React公式チュートリアルをTypeScriptで（Hooks導入以後）]
