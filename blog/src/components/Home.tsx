@@ -1,34 +1,35 @@
-import { useState, useEffect } from "react";
-import "./Home.css";
+import React, { useState, useEffect } from 'react';
 
-const Home = () => {
-    const [markdownContent, setMarkdownContent] = useState("");
-    const [title, setTitle] = useState("");
+interface Article {
+  title: string;
+  filename: string;
+}
 
-    useEffect(() => {
-        fetch("/md/test.md")
-          .then((response) => response.text())
-          .then((text) => {
-            setMarkdownContent(text);
+const Home: React.FC = () => {
+  const [articles, setArticles] = useState<Article[]>([]);
 
-            const titleMatch = text.match(/^#\s+(.*)/m);
-            if (titleMatch) {
-              setTitle(titleMatch[1]);
-            }
-          });
-      }, []);
+  useEffect(() => {
+    const fetchArticles = async () => {
+    //   const res = await fetch('http://backend:5000/api/articles');
+    const res = await fetch('http://172.19.0.3:5000/api/articles');
+      const data = await res.json();
+      setArticles(data);
+    };
 
-    return (
-        <div className="home">
-            <h2>Welcome to My Blog</h2>
-            <p>ここに最近のブログ記事のリストを表示します。</p>
-            <ul>
-                <li>
-                    <strong>{title}</strong>
-                </li>
-            </ul>
-        </div>
-    );
+    fetchArticles();
+  }, []);
+
+  return (
+    <div>
+      <h1>My Blog</h1>
+      <h2>Article List</h2>
+      <ul>
+        {articles.map((article) => (
+          <li key={article.title}>{article.title}</li>
+        ))}
+      </ul>
+    </div>
+  );
 };
 
 export default Home;
