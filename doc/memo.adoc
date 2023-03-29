@@ -1,0 +1,7 @@
+Reactのバージョン17以降、JSXを使用する場合でも、import React from "react";は不要となる。
+17以前は必要となる
+
+今回はtsconfig.jsonファイルでjsxオプションをreact-jsxに設定しているため、React 17の自動インポート機能を利用できている
+
+mdファイル読み込みのため下記コマンド実行
+$ docker-compose run --rm react-app sh -c "npm install react-markdown"

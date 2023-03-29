@@ -1,0 +1,9 @@
+.navbar__links {
+    text-align: center;
+  }
+
+  .navbar__links li {
+    display: inline-block;
+    list-style: none;
+    margin-right: 50px;
+  }
