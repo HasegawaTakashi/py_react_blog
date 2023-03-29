@@ -1,0 +1,35 @@
+$ docker-compose build
+
+$ docker-compose run --rm react-app sh -c "npm install -g create-react-app && create-react-app react-sample --template typescript"
+
+## もしGitHubからクローンしてきた場合、上記コマンドは使用せず、以下を使用する
+## $ docker-compose run --rm react-app sh -c "cd react-sample && npm install"
+## node_modulesがインストールされ、下記の$ docker-compose up がエラー無く動作する
+
+$ docker-compose up
+- http://localhost:3000 アプリケーション動作確認
+
+$ sudo chmod -R 777 reactApp/
+良くないけれど、権限を777譲渡
+
+$ rm -Rf .study/reactApp/react-sample/src/*
+
+Dockerfileに以下を追記
+RUN ["npm", "start"]
+
+エラーになるのでindex.tsxの下記を修正
+
+renderSquare(i: number)
+
+const root = document.getElementById("root");
+ReactDOM.render(<Game />, root);
+
+$ docker-compose up
+- http://localhost:3000
+3目並べが表示される
+
+$ docker-compose run --rm react-app sh -c "cd react-sample && npm i typescr
+ipt-tuple"
+タプル型の取り扱いに関するパッケージをインストール
+
+https://www.npmjs.com/package/typescript-tuple
