@@ -10,8 +10,7 @@ const Home: React.FC = () => {
 
   useEffect(() => {
     const fetchArticles = async () => {
-    //   const res = await fetch('http://backend:5000/api/articles');
-    const res = await fetch('http://172.19.0.3:5000/api/articles');
+    const res = await fetch('http://localhost:5000/api/articles');
       const data = await res.json();
       setArticles(data);
     };
