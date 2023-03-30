@@ -3,21 +3,18 @@ import "./App.css";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
 import Article from './components/Article';
+import Genre from './components/Genre';
 
 const App = () => {
   return (
     <BrowserRouter>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/genre/:genre" element={<Genre />} />
         <Route path="/article/:filename" element={<Article />} />
       </Routes>
     </BrowserRouter>
-  //   <div className="App">
-  //     <Navbar />
-  //     <main>
-  //       <Home />
-  //     </main>
-  //   </div>
   );
 };
 

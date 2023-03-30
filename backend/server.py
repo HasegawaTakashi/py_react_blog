@@ -1,13 +1,23 @@
 import os
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_cors import CORS
 
 app = Flask(__name__)
 CORS(app)
 
+@app.route('/api/genres', methods=['GET'])
+def get_genred():
+    md_directory = '/app/public/md'
+    genres = [d for d in os.listdir(md_directory) if os.path.isdir(os.path.join(md_directory, d))]
+    return jsonify(genres)
+
 @app.route('/api/articles', methods=['GET'])
 def get_articles():
+    genre = request.args.get('genre')
     md_directory = '/app/public/md'
+    if genre:
+        md_directory = os.path.join(md_directory, genre)
+
     md_files = [f for f in os.listdir(md_directory) if f.endswith('.md')]
 
     articles = []

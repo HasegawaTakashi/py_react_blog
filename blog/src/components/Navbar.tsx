@@ -9,7 +9,7 @@ const Navbar = () => {
           <a href="/">Home</a>
         </li>
         <li>
-          <a href="/list">Article List</a>
+          <a href="/list">Article List(今は機能せず)</a>
         </li>
       </ul>
     </nav>

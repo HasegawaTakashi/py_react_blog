@@ -11,3 +11,7 @@ $ npm install react-router-dom
 
 markdown形式のファイルを整形して出力するためにfrontendコンテナ何で以下実行
 $ npm install react-markdown rehype-raw
+
+ReactでURLを指定するとき、シングルクォートじゃなくてバッククォートね
+const res = await fetch(`http://localhost:5000/api/articles?genre=${genre}`);
+ドはまりしてたぁ…泣
