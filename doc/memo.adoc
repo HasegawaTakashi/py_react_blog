@@ -5,3 +5,9 @@ Reactのバージョン17以降、JSXを使用する場合でも、import React 
 
 mdファイル読み込みのため下記コマンド実行
 $ docker-compose run --rm react-app sh -c "npm install react-markdown"
+
+ルーティング機能実装するためにfrontendコンテナ内で以下実行
+$ npm install react-router-dom
+
+markdown形式のファイルを整形して出力するためにfrontendコンテナ何で以下実行
+$ npm install react-markdown rehype-raw

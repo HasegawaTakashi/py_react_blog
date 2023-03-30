@@ -1,15 +1,23 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
+import Article from './components/Article';
 
 const App = () => {
   return (
-    <div className="App">
-      <Navbar />
-      <main>
-        <Home />
-      </main>
-    </div>
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/article/:filename" element={<Article />} />
+      </Routes>
+    </BrowserRouter>
+  //   <div className="App">
+  //     <Navbar />
+  //     <main>
+  //       <Home />
+  //     </main>
+  //   </div>
   );
 };
 
