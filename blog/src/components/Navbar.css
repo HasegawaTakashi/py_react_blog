@@ -1,9 +1,10 @@
 .navbar__links {
-    text-align: center;
+    display: flex;
+    flex-direction: column;
   }
 
-  .navbar__links li {
-    display: inline-block;
-    list-style: none;
-    margin-right: 50px;
-  }
+.navbar__links li {
+  display: inline-block;
+  list-style: none;
+  margin-right: 50px;
+}

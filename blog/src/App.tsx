@@ -1,15 +1,20 @@
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 import "./App.css";
 import Navbar from "./components/Navbar";
 import Home from "./components/Home";
+import Article from './components/Article';
+import Genre from './components/Genre';
 
 const App = () => {
   return (
-    <div className="App">
+    <BrowserRouter>
       <Navbar />
-      <main>
-        <Home />
-      </main>
-    </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/genre/:genre" element={<Genre />} />
+        <Route path="/article/:filename" element={<Article />} />
+      </Routes>
+    </BrowserRouter>
   );
 };
 
