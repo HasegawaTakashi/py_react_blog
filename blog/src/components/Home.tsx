@@ -1,12 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-interface Genre {
-  name: string;
-}
-
 const Home = () => {
-  const [genres, setGenres] = useState<Genre[]>([]);
+  const [genres, setGenres] = useState<string[]>([]);
 
   useEffect(() => {
     const fetchGenres = async () => {
@@ -24,8 +20,8 @@ const Home = () => {
       <h2>Genres</h2>
       <ul>
         {genres.map((genre) => (
-          <li key={genre.name}>
-            <Link to={`/genre/${genre.name}`}>{genre.name}</Link>
+          <li key={genre}>
+            <Link to={`/genre/${genre}`}>{genre}</Link>
           </li>
         ))}
       </ul>
