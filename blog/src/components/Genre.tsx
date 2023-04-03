@@ -12,8 +12,10 @@ const Genre = () => {
 
   useEffect(() => {
     const fetchArticles = async () => {
-      const res = await fetch(`http://localhost:5000/api/articles?genre=${genre}`);
+      const genreParam = genre ? `?genre=${genre}` : "";
+      const res = await fetch(`http://localhost:5000/api/articles${genreParam}`);
       const data = await res.json();
+      console.log(data)
       setArticles(data);
     };
 
@@ -27,7 +29,7 @@ const Genre = () => {
       <ul className="article-list">
         {articles.map((article) => (
           <li className="article-title" key={article.title}>
-            <Link to={`/article/${article.filename}`}>{article.title}</Link>
+            <Link to={`/articles/${genre}/${article.filename}`}>{article.title}</Link>
           </li>
         ))}
       </ul>

@@ -12,18 +12,23 @@ interface Article {
 
 const ArticleData = () => {
   const [article, setArticle] = useState<Article | null>(null);
-  const { filename } = useParams<{ filename: string }>();
+  const [error, setError] = useState<string | null>(null);
+  const { genre, filename } = useParams<{ genre: string; filename: string }>();
 
   useEffect(() => {
     const fetchArticle = async () => {
-      const res = await fetch(`http://localhost:5000/api/articles`);
+      const genreParam = genre ? `?genre=${genre}` : "";
+      const res = await fetch(`http://localhost:5000/api/articles/${filename}${genreParam}`);
       const data = await res.json();
-      const foundArticle = data.find((a: Article) => a.filename === filename);
-      setArticle(foundArticle);
+      if (data.error) {
+        setError(data.error);
+      } else {
+        setArticle({ filename: data.filename, title: data.title, article_body: data.article_body });
+      }
     };
-
     fetchArticle();
-  }, [filename]);
+  }, [filename, genre]);
+
 
   if (!article) {
     return <div>Loading...</div>;
