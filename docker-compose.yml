@@ -25,9 +25,10 @@ services:
     build: ./db
     volumes:
       - ./db/data:/var/lib/mysql
-    env_file: db.development.env
+    env_file:
+      - ./.env.db.development
     ports:
-      - "${DB_PORT}:3306"
+      - "${DB_PORT:-3308}:3306"
     networks:
       - app-network
 
