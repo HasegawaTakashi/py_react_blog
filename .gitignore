@@ -131,4 +131,4 @@ dmypy.json
 .pyre/
 
 # mysql
-db/data/
+db/data
