@@ -1,22 +1,14 @@
 from flask import Flask
-import mysql.connector
+
+import sql_query
 
 app = Flask(__name__)
 
 @app.route('/')
-def hello():
-    db = mysql.connector.connect(
-        host="db",
-        user="root",
-        password="password",
-        database="my_database",
-    )
+def do_query():
+    result = sql_query.show_database()
+    return result
 
-    cursor = db.cursor()
-    cursor.execute("SHOW DATABASES")
-    result = cursor.fetchall()
-
-    return str(result)
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
