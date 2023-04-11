@@ -21,6 +21,17 @@ services:
     networks:
       - app-network
 
+  db:
+    build: ./db
+    volumes:
+      - ./db/data:/var/lib/mysql
+    env_file:
+      - ./.env.db.development
+    ports:
+      - "${DB_PORT:-3308}:3306"
+    networks:
+      - app-network
+
 networks:
   app-network:
     driver: bridge
