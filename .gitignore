@@ -132,3 +132,6 @@ dmypy.json
 
 # mysql
 db/data
+
+# study
+study/mysql-connection/db/db_data/
